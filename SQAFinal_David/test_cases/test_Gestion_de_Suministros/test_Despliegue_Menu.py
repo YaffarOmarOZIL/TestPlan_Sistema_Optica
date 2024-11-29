@@ -22,9 +22,39 @@ class TestRegistro:
         print(" Prueba Completa")
 
     def test_Despliegue(self):
-        time.sleep(6)
+        time.sleep(10)
         self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
         time.sleep(1)
         actual = self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").text
         esperado = "Proveedores"
+        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+        
+    def test_entrar_boton_Proveedor(self):
+        time.sleep(10)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
+        time.sleep(10)
+        actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
+        esperado = "Proveedores"
+        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+    
+    def test_entrar_boton_Compra(self):
+        time.sleep(10)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[2]/span").click()
+        time.sleep(10)
+        actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
+        esperado = "Compras"
+        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+        
+    def test_entrar_boton_DetalleCompra(self):
+        time.sleep(10)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        time.sleep(1)
+        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[3]/span").click()
+        time.sleep(10)
+        actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
+        esperado = "Detalle Compras"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
