@@ -37,7 +37,7 @@ class TestProveedor:
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(25)
-        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'Lentes Global')]").text
+        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]").text
         time.sleep(1)
         esperado = "TestCase"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
