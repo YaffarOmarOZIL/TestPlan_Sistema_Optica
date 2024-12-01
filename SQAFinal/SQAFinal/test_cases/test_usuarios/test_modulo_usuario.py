@@ -57,3 +57,15 @@ class TestLogin:
         esperado = "David Carpio"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
         
+    def test_vefiricar_Eliminar_usuario(self):
+        self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/user']").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[3]/a[3]/span").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']").click()
+        time.sleep(2)
+        self.driver.find_element(By.XPATH, "//input[@class='form-control']").send_keys("David Carpio")
+        time.sleep(20)
+        actual = self.driver.find_element(By.XPATH, "//td[@class='dataTables_empty']").text
+        esperado = "No se encontraron elementos"
+        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
