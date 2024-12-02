@@ -38,18 +38,16 @@ class TestLogin:
         esperado = "✔️"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
-    """def test_verificar_visitanos_uno(self):
-        self.driver.find_element(By.XPATH, "//section[@id='hero']//button").click()
+    def test_verificar_visitanos_uno(self):
+        self.driver.find_element(By.XPATH, "//div[text() = 'Sucursal 1 Opticas Medop']").click()
         time.sleep(2)
         actual = self.driver.find_element(By.XPATH, "//form[@id='XmI62e']").text
-        esperado = ""
-        print(f"**** {actual}***")
+        esperado = "Medop"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
     def test_verificar_visitanos_dos(self):
-        self.driver.find_element(By.XPATH, "//section[@id='final']//button").click()
+        self.driver.find_element(By.XPATH, "//div[text() = 'Sucursal 1 Opticas Medop']").click()
         time.sleep(2)
         actual = self.driver.find_element(By.XPATH, "//input").text
-        esperado = ""
+        esperado = "Medop"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
-        """
