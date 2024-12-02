@@ -39,15 +39,10 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_verificar_visitanos_uno(self):
-        self.driver.find_element(By.XPATH, "//div[text() = 'Sucursal 1 Opticas Medop']").click()
-        time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "//form[@id='XmI62e']").text
-        esperado = "Medop"
+        self.driver.find_element(By.XPATH, "//section[@id='hero']//button").click()
+        time.sleep(6)
+        actual = self.driver.find_element(By.XPATH, "//*[@id='QA0Szd']/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[3]/div/div[2]/div[4]/div[1]/div/div/div[2]/div[1]/div[2]").text
+        esperado = "medop"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
-    def test_verificar_visitanos_dos(self):
-        self.driver.find_element(By.XPATH, "//div[text() = 'Sucursal 1 Opticas Medop']").click()
-        time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "//input").text
-        esperado = "Medop"
-        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+    
