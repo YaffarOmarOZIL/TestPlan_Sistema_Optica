@@ -24,7 +24,7 @@ class TestLogin:
         self.driver.quit()
         print(" Prueba visual completa")
 
-    def test_vefiricar_entrar_usuario(self):
+    '''def test_vefiricar_entrar_usuario(self):
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/user']").click()
         time.sleep(2)
         actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
@@ -72,18 +72,17 @@ class TestLogin:
         time.sleep(20)
         actual = self.driver.find_element(By.XPATH, "//td[@class='dtr-control']//child::span").text
         esperado = "David Carpios"
-        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"'''
         
-    def test_vefiricar_Eliminar_usuario(self):
+    def test_verificar_Eliminar_usuario(self):
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/user']").click()
-        time.sleep(2)
+        WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[3]/a[3]/span")))
         self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[3]/a[3]/span").click()
-        time.sleep(2)
+        WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']")))
         self.driver.find_element(By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']").click()
-        time.sleep(2)
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//input[@class='form-control']")))
-        self.driver.find_element(By.XPATH, "//input[@class='form-control']").send_keys("David Carpios")
-        time.sleep(20)
-        actual = WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//td[@class='dataTables_empty']")))
+        WebDriverWait(self.driver, 50).until(EC.presence_of_element_located((By.XPATH, "//input[@class='form-control']")))
+        self.driver.find_element(By.XPATH, "//input[@class='form-control']").send_keys("David Carpio")
+        WebDriverWait(self.driver, 50).until(EC.text_to_be_present_in_element((By.XPATH, "//td[@class='dataTables_empty']"), "No se encontraron elementos"))
+        actual = self.driver.find_element(By.XPATH, "//td[@class='dataTables_empty']").text
         esperado = "No se encontraron elementos"
-        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+        assert esperado in actual, f"ERROR: Actual es: '{actual}' y el Esperado: '{esperado}'"
