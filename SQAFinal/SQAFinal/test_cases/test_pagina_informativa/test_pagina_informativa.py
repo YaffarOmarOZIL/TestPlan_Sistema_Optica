@@ -44,5 +44,7 @@ class TestLogin:
         actual = self.driver.current_url
         esperada = "https://www.google.com/maps/search/optica+medop/@-16.5011192,-68.1300363,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
         assert actual != esperada, f"ERROR: URL actual es: {actual} y la esperada es: {esperada}"
+        #xd no me queria dar git asi que lo desisntale y volvi a instalar
+        #como en la vida real
     
     
