@@ -9,3 +9,4 @@ pip install webdriver-manager
 Comando para ejecutar las pruebas:
 
 pytest -s -v /Direccion_del_archivo_test...
+pytest -s -v .\test_cases\

@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.firefox import GeckoDriverManager
 import time
 
-class TestProveedor:
+class TestSucursales:
     def setup_method(self):
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
@@ -15,67 +15,54 @@ class TestProveedor:
         self.driver.find_element(By.XPATH, "//input[@name='password']").send_keys("cinnamonroll")
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
-        time.sleep(1)
+        time.sleep(12)
+        #Entrar a sucursales
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Sucursales')]").click()
+        time.sleep(10)
 
     def teardown_method(self):
         self.driver.quit()
         print(" Prueba Completa")
-        
+
     def test_Create(self):
-        time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
-        time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
-        time.sleep(10)
         self.driver.find_element(By.XPATH, "//a[@class='btn btn-primary']//child::span").click()
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "//input[@name='nombre']").send_keys("TestCase")
+        self.driver.find_element(By.XPATH, "//input[@name='nombre']").send_keys("Sucursal Test")
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "//input[@name='contacto']").send_keys("TestCase Contacto")
+        self.driver.find_element(By.XPATH, "//input[@name='direccion']").send_keys("Direccion Test")
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "//input[@name='telefono']").send_keys("77766889")
+        self.driver.find_element(By.XPATH, "//input[@type='checkbox']").click()
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(25)
-        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]").text
+        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'Sucursal Test')]").text
         time.sleep(1)
-        esperado = "TestCase"
+        esperado = "Sucursal Test"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
     def test_Editar(self):
-        time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
-        time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
-        time.sleep(10)
         #Editar gaaa
-        self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
+        self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'Sucursal Test')]//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "//input[@name='nombre']").send_keys("TestCase Editado")
+        self.driver.find_element(By.XPATH, "//input[@name='nombre']").send_keys("Editado ")
         time.sleep(1)
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(25)
-        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase Editado')]").text
+        actual = self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'Editado')]").text
         time.sleep(1)
-        esperado = "TestCase Editado"
+        esperado = "Editado"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_Borrar(self):
-        time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
-        time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
-        time.sleep(10)
         #Borrar gaaa
-        self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]").click()
+        self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'Sucursal Test')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]").click()
         time.sleep(10)
         self.driver.find_element(By.XPATH, "//button[contains(text(), 'Eliminar')]").click()
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "//input[@type='search']").send_keys("TestCase Editado")
+        self.driver.find_element(By.XPATH, "//input[@type='search']").send_keys("Editado Sucursal Test")
         time.sleep(20)
         actual = self.driver.find_element(By.XPATH, "//td[@class='dataTables_empty']").text
         time.sleep(1)
         esperado = "No se encontraron elementos"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
-        
         
