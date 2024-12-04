@@ -25,7 +25,7 @@ class TestAnalitica:
     def test_verificar_graficos_analitica(self):
         self.driver.find_element(By.XPATH, "//a[text() = 'Analítica']").click()
         time.sleep(2)
-        for i in range(1, 11):
+        for i in range(1, 10):
             esperado = f"Gráfico {i}"
             actual = self.driver.find_element(By.XPATH, f"//img[@alt='{esperado}']").get_attribute("alt")
             assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"

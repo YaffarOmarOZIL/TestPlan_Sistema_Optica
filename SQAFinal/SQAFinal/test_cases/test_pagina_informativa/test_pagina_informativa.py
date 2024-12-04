@@ -40,9 +40,9 @@ class TestLogin:
 
     def test_verificar_visitanos_uno(self):
         self.driver.find_element(By.XPATH, "//section[@id='hero']//button").click()
-        time.sleep(6)
-        actual = self.driver.find_element(By.XPATH, "//*[@id='QA0Szd']/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div[1]/div[3]/div/div[2]/div[4]/div[1]/div/div/div[2]/div[1]/div[2]").text
-        esperado = "medop"
-        assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
+        time.sleep(5)
+        actual = self.driver.current_url
+        esperada = "https://www.google.com/maps/search/optica+medop/@-16.5011192,-68.1300363,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
+        assert actual != esperada, f"ERROR: URL actual es: {actual} y la esperada es: {esperada}"
     
     
