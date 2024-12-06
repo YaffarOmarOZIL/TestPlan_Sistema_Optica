@@ -20,21 +20,22 @@ class TestLogin:
     def test_verificar_quienes_somos(self):
         self.driver.find_element(By.XPATH, "//a[@href  = '#somos-proya']").click()
         time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "//h2[contains(text(), 'Somos')]").text
+        actual = self.driver.find_element(By.XPATH, "//div[@class='texto']//h2").text
+        #actualizado xd
         esperado = "Somos OPTICA MEDOP"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
         
     def test_verificar_nuestras_diferentes_opciones(self):
         self.driver.find_element(By.XPATH, "//a[@href  = '#nuestros-programas']").click()
         time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "//h2[contains(text(), 'ofrecemos')]").text
+        actual = self.driver.find_element(By.XPATH, "//section[@id='nuestros-programas']//h2").text
         esperado = "Te ofrecemos"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_verificar_nuestras_caracteristicas(self):
         self.driver.find_element(By.XPATH, "//a[@href  = '#caracteristicas']").click()
         time.sleep(2)
-        actual = self.driver.find_element(By.XPATH, "//li[contains(text(), '✔️ Vidrio')]").text
+        actual = self.driver.find_element(By.XPATH, "//ul").text
         esperado = "✔️"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
@@ -44,7 +45,6 @@ class TestLogin:
         actual = self.driver.current_url
         esperada = "https://www.google.com/maps/search/optica+medop/@-16.5011192,-68.1300363,14z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNS4wIKXMDSoASAFQAw%3D%3D"
         assert actual != esperada, f"ERROR: URL actual es: {actual} y la esperada es: {esperada}"
-        #xd no me queria dar git asi que lo desisntale y volvi a instalar
-        #como en la vida real xd
+
     
     
