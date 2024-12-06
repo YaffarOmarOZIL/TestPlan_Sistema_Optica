@@ -23,9 +23,9 @@ class TestProveedor:
         
     def test_Create(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Proveedores']").click()
         time.sleep(10)
         self.driver.find_element(By.XPATH, "//a[@class='btn btn-primary']//child::span").click()
         time.sleep(10)
@@ -44,9 +44,9 @@ class TestProveedor:
     
     def test_Editar(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Proveedores']").click()
         time.sleep(10)
         #Editar gaaa
         self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
@@ -62,9 +62,9 @@ class TestProveedor:
 
     def test_Borrar(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Proveedores']").click()
         time.sleep(10)
         #Borrar gaaa
         self.driver.find_element(By.XPATH, "//tbody//tr//td//span[contains(text(), 'TestCase')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]").click()

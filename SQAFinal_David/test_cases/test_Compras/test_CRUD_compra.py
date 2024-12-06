@@ -18,9 +18,9 @@ class TestCompra:
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(11)
         #Entrar a la compra
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[2]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Compras']").click()
         time.sleep(10)
 
     def teardown_method(self):
@@ -42,7 +42,7 @@ class TestCompra:
 
         self.driver.find_element(By.XPATH, "//button[@id='agregar-detalle']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div/div/div/main/div/div/div/form/div[1]/div/div[4]/div/div[2]/div[5]/button").click()
+        self.driver.find_element(By.XPATH, "//div[2]//div[5]//button").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//button[@id='agregar-detalle']").send_keys(Keys.TAB)
         time.sleep(2)

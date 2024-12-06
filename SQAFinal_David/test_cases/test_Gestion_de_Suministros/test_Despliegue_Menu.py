@@ -23,17 +23,17 @@ class TestRegistro:
 
     def test_Despliegue(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        actual = self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").text
+        actual = self.driver.find_element(By.XPATH, "//span[text()='Proveedores']").text
         esperado = "Proveedores"
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
         
     def test_entrar_boton_Proveedor(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[1]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Proveedores']").click()
         time.sleep(10)
         actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
         esperado = "Proveedores"
@@ -41,9 +41,9 @@ class TestRegistro:
     
     def test_entrar_boton_Compra(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[2]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Compras']").click()
         time.sleep(10)
         actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
         esperado = "Compras"
@@ -51,9 +51,9 @@ class TestRegistro:
         
     def test_entrar_boton_DetalleCompra(self):
         time.sleep(10)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[3]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Detalle Compras']").click()
         time.sleep(10)
         actual = self.driver.find_element(By.XPATH, "//h1[@class='text-capitalize mb-0']").text
         esperado = "Detalle Compras"

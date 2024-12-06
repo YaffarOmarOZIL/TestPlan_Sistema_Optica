@@ -17,9 +17,9 @@ class TestDetalleCompra:
         self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(11)
         #Entrar a la detalle compra
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/a/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Gestion de Suministros']").click()
         time.sleep(1)
-        self.driver.find_element(By.XPATH, "/html/body/div/aside/div/div[2]/ul/li[7]/div/a[3]/span").click()
+        self.driver.find_element(By.XPATH, "//span[text()='Detalle Compras']").click()
         time.sleep(10)
 
     def teardown_method(self):
