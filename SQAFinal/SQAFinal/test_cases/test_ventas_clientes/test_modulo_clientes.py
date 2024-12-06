@@ -25,7 +25,7 @@ class TestLogin:
         print(" Prueba visual completa")
 
     def test_vefiricar_entrar_clientes(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/cliente']").click()
         time.sleep(2)
@@ -34,7 +34,7 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_vefiricar_buscador_clientes(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/cliente']").click()
         time.sleep(2)
@@ -46,7 +46,7 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
     def test_verificar_agregar_cliente(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/cliente']").click()
         time.sleep(2)
@@ -66,12 +66,12 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_verificar_Editar_cliente(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/cliente']").click()
         time.sleep(2)
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[5]/a[2]/span")))
-        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[5]/a[2]/span").click()
+        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'Jhoel')]//parent::td//parent::tr//span[contains(text(), 'Editar')]")))
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Jhoel')]//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//input[@name='nombre']")))
         self.driver.find_element(By.XPATH, "//input[@name='nombre']").send_keys("J")
         self.driver.find_element(By.XPATH, "//input[@name='apellido']").send_keys("N")
@@ -85,12 +85,12 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
     def test_verificar_Eliminar_cliente(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/cliente']").click()
         time.sleep(2)
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[5]/a[3]/span")))
-        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[5]/a[3]/span").click()
+        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'JJhoel')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]")))
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'JJhoel')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']")))
         self.driver.find_element(By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//input[@class='form-control']")))
