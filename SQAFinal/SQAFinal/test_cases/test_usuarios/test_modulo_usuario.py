@@ -59,8 +59,8 @@ class TestLogin:
 
     def test_verificar_Editar_usuario(self):
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/user']").click()
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr/td[3]/a[2]/span")))
-        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr/td[3]/a[2]/span").click()
+        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'David Carpio')]//parent::td//parent::tr//span[contains(text(), 'Editar')]")))
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'David Carpio')]//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//input[@name='name']")))
         self.driver.find_element(By.XPATH, "//input[@name='name']").send_keys("s")
         self.driver.find_element(By.XPATH, "//input[@name='email']").send_keys("a")
@@ -75,8 +75,8 @@ class TestLogin:
     
     def test_verificar_Eliminar_usuario(self):
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/user']").click()
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[3]/a[3]/span")))
-        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[3]/a[3]/span").click()
+        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'sDavid Carpio')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]")))
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'sDavid Carpio')]//parent::td//parent::tr//span[contains(text(), 'Eliminar')]").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']")))
         self.driver.find_element(By.XPATH, "//button[@class='swal-button swal-button--delete bg-danger']").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//input[@class='form-control']")))
