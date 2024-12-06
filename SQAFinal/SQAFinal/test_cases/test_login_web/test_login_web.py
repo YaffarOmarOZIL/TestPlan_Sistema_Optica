@@ -1,12 +1,12 @@
 # Incluir acá los test cases para el módulo específico.
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
 import time
  
 class TestLogin:
     def setup_method(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Firefox()
         self.driver.maximize_window()
         self.driver.get("http://127.0.0.1:8000/")
         self.driver.find_element(By.XPATH, "//a[text() = 'Iniciar Sesion']").click()
