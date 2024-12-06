@@ -27,7 +27,7 @@ class TestLogin:
         print(" Prueba visual completa")
 
     def test_vefiricar_entrar_ventas(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/venta']").click()
         time.sleep(2)
@@ -36,7 +36,7 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_vefiricar_buscador_ventas(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/venta']").click()
         time.sleep(2)
@@ -48,7 +48,7 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
     
     def test_verificar_agregar_venta(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/venta']").click()
         time.sleep(2)
@@ -57,11 +57,11 @@ class TestLogin:
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//select[@name='cliente_id']")))
         self.driver.find_element(By.XPATH, "//select[@name='cliente_id']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div/div/div/main/div/div/div/form/div[1]/div/div[1]/select/option[15]").click()
+        self.driver.find_element(By.XPATH, "//select[@name='cliente_id']//child::option[@value='12']").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//select[@name='montura_id[]']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "//*[@id='detalles-venta']/div/div[1]/select/option[4]").click()
+        self.driver.find_element(By.XPATH, "//select[@name='montura_id[]']//child::option[@value='4']").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//select[@name='lente_id[]']").click()
         time.sleep(2)
@@ -85,16 +85,16 @@ class TestLogin:
         assert esperado in actual, f"ERROR: Actual es: {actual} y el Esperado: {esperado}"
 
     def test_verificar_Editar_venta(self):
-        self.driver.find_element(By.XPATH, "//*[@id='mobile-menu']/ul/li[5]/a").click()
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Ventas y Clientes')]").click()
         time.sleep(5)
         self.driver.find_element(By.XPATH, "//a[@href ='http://127.0.0.1:8000/admin/venta']").click()
         time.sleep(2)
-        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[4]/a[2]/span")))
-        self.driver.find_element(By.XPATH, "//*[@id='crudTable']/tbody/tr[1]/td[4]/a[2]/span").click()
+        WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//span[contains(text(), 'Valentina')]//parent::span//parent::td//parent::tr//span[contains(text(), 'Editar')]")))
+        self.driver.find_element(By.XPATH, "//span[contains(text(), 'Valentina')]//parent::span//parent::td//parent::tr//span[contains(text(), 'Editar')]").click()
         WebDriverWait(self.driver, 50).until(EC.visibility_of_element_located((By.XPATH, "//select[@name='cliente_id']")))
         self.driver.find_element(By.XPATH, "//select[@name='cliente_id']").click()
         time.sleep(2)
-        self.driver.find_element(By.XPATH, "/html/body/div/div/div/main/div/div/div/form/div[1]/div/div[1]/select/option[8]").click()
+        self.driver.find_element(By.XPATH, "//select[@name='cliente_id']//child::option[@value='14']").click()
         time.sleep(2)
         self.driver.find_element(By.XPATH, "//input[@name='detalleventas[0][precio_unitario]']").click()
         time.sleep(2)
